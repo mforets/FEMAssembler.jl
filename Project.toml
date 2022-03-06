@@ -1,0 +1,4 @@
+name = "FEMAssembler"
+uuid = "e7bcd777-3339-4a95-8b9e-a3acefc5ad76"
+authors = ["jorgepz <jorgepz@fing.edu.uy>"]
+version = "0.1.0"
