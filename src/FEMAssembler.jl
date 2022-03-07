@@ -12,6 +12,9 @@ module FEMAssembler
         diriDofs::Vector{Int}
     end
 
+    struct systemMatrix{T}
+        matrix::T       
+    end
     include("assembler.jl")
 
     export elementsData,
