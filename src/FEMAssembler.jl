@@ -1,7 +1,7 @@
 module FEMAssembler
 
-    struct materialsData
-        youngModulus::Float64
+    struct materialsData{T}
+        youngModulus::T
     end
 
     struct elementsData
