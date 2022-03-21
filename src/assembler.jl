@@ -10,6 +10,8 @@ function assembler( nodalCoords, elemNodalConnec, elemMEBIVals, materialsData, e
     KG = zeros( 2*nNodes, 2*nNodes ) ;
     FG = zeros( 2*nNodes ) ;
 
+    Kmatrices = [] ;
+
     for elem in (1:nElems);
         if elemMEBIVals[ elem, 1 ] > 0
             nodesOfThisElem = elemNodalConnec[ elem ] ;
@@ -23,15 +25,16 @@ print("\ndofsElem: ", dofsElem)
 
             KGelem = linearTrussStiffnessMatrix( E, A, nodesOfElemCoords );
 
-display(KGelem)
-            stiffnessParam = E * A / L ;
+            display(KGelem)
 
-            KG[ dofsElem, dofsElem ] = KG[ dofsElem, dofsElem ] .+ stiffnessParam * KGelem ;
+            KG[ dofsElem, dofsElem ] = KG[ dofsElem, dofsElem ] .+ KGelem ;
+
+            push!(Kmatrices, KGelem) ;
         end
     end
 
     FG[ thisBCsIndexes.neumDofs ] = load ;
 
-    return KG, FG;
+    return KG, FG, Kmatrices;
 
 end
