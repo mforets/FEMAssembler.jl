@@ -4,6 +4,7 @@ module FEMAssembler
     include("init.jl")
 
     # functions
+    include("elements/linearTrussStiffnessMatrix.jl")
     include("dofsComputations.jl")
     include("assembler.jl")
 

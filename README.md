@@ -9,5 +9,5 @@ using Pkg; Pkg.activate("."); Pkg.instantiate();
 ```
  1. and run an example using:
 ```julia
-include("examples/smallTruss.jl")
+include("examples/vonMisesTruss.jl")
 ```

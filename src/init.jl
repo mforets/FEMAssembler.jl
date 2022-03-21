@@ -1,3 +1,6 @@
+
+using LinearAlgebra
+
 struct materialsData{T}
     youngModulus::T
 end
